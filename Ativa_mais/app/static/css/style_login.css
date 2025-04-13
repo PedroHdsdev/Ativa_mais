@@ -1,0 +1,72 @@
+/* Geral */
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    border: none;
+    background-color: white;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
+}
+
+.head_title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Cabeçalho */
+.head_cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #555151;
+    border-bottom: 3px solid #555151;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 10vh;
+    padding: 0 20px;
+    z-index: 999;
+}
+
+.img_logo {
+    height: auto;
+    margin-left: auto;
+    margin-right: 15px;
+    padding: 10px 15px;
+}
+
+/* Container Principal */
+.container {
+    width: 100%;
+    height: calc(100vh - 10vh); 
+    margin-top: 10vh;
+    display: flex;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+    .content {
+        margin-left: 220px;
+    }
+}

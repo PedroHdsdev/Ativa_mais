@@ -1,62 +1,84 @@
-body{
+/* Geral */
+body {
     display: flex;
     align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
     font-family: 'Times New Roman', Times, serif;
     border: none;
     background-color: white;
-    justify-content: center;
-    margin: none;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
 }
-.head_cont{
-    align-items: center;
+
+.head_title {
+    flex-grow: 1;
     text-align: center;
-    justify-items: center;
-    justify-content:  space-between;
-    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
     font-weight: bold;
     color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Cabeçalho */
+.head_cont {
     display: flex;
-    background-color: gray;
-    box-shadow: 0 2px 2px grey;
-    border: gray;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #555151;
+    border-bottom: 3px solid #555151;
     width: 100%;
-    margin:none ;
-    height: 15%;
     position: fixed;
     top: 0;
     left: 0;
-  
+    height: 10vh;
+    padding: 0 20px;
+    z-index: 999;
 }
-.img_logo{
-    left:  50px;
-    right: 50px;
-    margin-left:0 ;
-    margin-right: 0;
+
+.img_logo {
+    height: auto;
+    margin-left: auto;
+    margin-right: 15px;
+    padding: 10px 15px;
 }
-.container{
-    align-items: center;
-    text-align: center;
-    justify-items: center;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    color: #555151;
-    background-color:white;
+
+/* Container Principal */
+.container {
     width: 100%;
     height: calc(100vh - 10vh); 
     margin-top: 10vh;
+    display: flex;
+    font-weight: bold;
+    color: black;
+    background-color: white;
 }
+
+.mini_container{
+    width: 95%;
+    display: inline-block;
+    margin-top: 3%;
+    margin-left: 8%;
+    margin-bottom: none;
+}
+
+/* Sidebar */
 .sidebar {
     width: 23%; 
     height: calc(100% - 10%); /* Ocupa toda a altura */
-    background-color: gray;
+    background-color: #555151;
     color: white;
     position: fixed; /* Fixado na lateral */
     top: 10%;
     left: 0;
     border-radius: 0px 10px 0px 10px;
-    border: 3px solid gray;
+    border: 3px solid #555151;
     transition: transform 0.3s ease; 
     transform: translateX(-100%); /* Oculto inicialmente */
     z-index: 999;
@@ -79,7 +101,7 @@ body{
 }
 
 .sidebar ul li a:hover {
-    background-color: lightgray;
+    background-color: #007bff;
     text-decoration:none;
 }
 .sidebar.hidden {
@@ -90,11 +112,11 @@ body{
     transform: translateX(0);
 }
 .sidebar ul li.selected {
-    background-color: gray; 
+    background-color: #555151; 
     color: #fff;
 }
 .sidebar ul:not(.clicked):hover {
-    background-color: lightgray;
+    background-color: #555151;
     color: #fff;
 }
 
@@ -155,11 +177,7 @@ body{
     color: white;
     background-color: #969393;
 }
-.minimenu{
-    width: 90%;
-    margin-top: 25px;
-    margin-bottom: none;
-}
+
 .mini_btn{ 
     margin-top: none;
     padding: 10px 10px;
@@ -176,21 +194,27 @@ body{
 .mini_btn:hover{
     background-color: rgba(0, 0, 0, 0.8);
 }
-.Rodape{
-    align-items: center;
-    text-align: center;
-    justify-items: center;
-    justify-content: center;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    color: white;
+
+.rodape {
     display: flex;
-    background-color: gray;
-    box-shadow: 0 2px 2px grey;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #555151;
+    border-bottom: 3px solid #555151;
     width: 100%;
-    border: none;
-    margin:none ;
-    height: 15%;
     bottom: 0;
     left: 0;
+    height: 10vh;
+    padding: 0 20px;
+    z-index: 999;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+    .content {
+        margin-left: 220px;
+    }
 }
