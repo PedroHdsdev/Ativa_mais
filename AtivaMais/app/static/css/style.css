@@ -57,7 +57,7 @@ a {
     display: flex;
     font-weight: bold;
     color: black;
-    background-color: white;
+    background-color: white; 
 }
 
 .mini_container{

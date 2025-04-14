@@ -1,0 +1,42 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Cadastro</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+        <link rel='stylesheet' href="{% static 'css/style_login.css' %}">
+    </head>
+    <body>
+        <div class="head_cont">
+            <a href="">
+            </a>
+            <img src="{% static 'img/logo_p.png' %}" alt="logo" class="img_logo">  
+            <br><br>
+        </div>
+        <div class='container'>
+            <form method="POST" class="form" action = "{%  url 'LOGIN' %}">
+                {% csrf_token %}
+ 
+                <div  class="field">
+                <label for="Username" class="lab">Nome:</label>
+                <input type="text" id="Username" name="Username" class="text" required>
+                </div>
+                <div  class="field">
+                <label for="password" class="lab">Senha:</label>
+                <input type="password" id="password" name="password" class="text" required>
+                </div>
+                <div  class="field">
+                <label for="conf_password" class="lab">Confirmar Senha:</label>
+                <input type="password" id="conf_password" name="conf_password" class="text" required>
+                </div>
+                <div  class="field">
+                    <label for="m_email" class="lab">E-mail</label>
+                    <input type="email" id="m_email" name="m_email" class="text" placeholder="" required>
+                </div>
+                <button type="submit" class="btn_Entrar">Cadastrar</button>
+            </form>
+        </div>
+    </body>
+</html>

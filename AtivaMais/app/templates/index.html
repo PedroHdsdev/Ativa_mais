@@ -16,13 +16,13 @@
     <div class="head_cont">
         <button class="btn_menu" onclick="toggleMenu()">☰</button>
         <div class="head_title">
-            <a href="{% url 'homeAction' %}">
+            <a href="">
                 <h2>{% block titlepage %}page{% endblock %}</2h>
             </a>
         </div>
         <div>
-            <a href="{% url 'homeAction' %}">
-                <img src="{% static 'img/logo_pequeno.png' %}" alt="logo" class="img_logo">
+            <a href="">
+                <img src="{% static 'img/logo_p.png' %}" alt="logo" class="img_logo">
             </a>
         </div>
         <br><br>
@@ -48,7 +48,8 @@
         {% block container %}{% endblock %}
     </div>
     <div class="rodape">
-        {% block rodape %}{% endblock %}
+        <!-- {% block rodape %}{% endblock %} -->
+        <img src="{% static 'img/logo_p.png' %}" alt="logo" class="img_logo">
     </div>
     <script src="{% static 'js/script.js' %}"></script>
     {% block scripts %}{% endblock %}

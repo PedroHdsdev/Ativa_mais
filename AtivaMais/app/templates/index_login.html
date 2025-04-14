@@ -10,20 +10,23 @@
     </head>
     <body>
         <div class="head_cont">
-            <a href="{% url 'homeAction' %}">
-                <img src="{% static 'img/logo_pequeno.png' %}" alt="logo" class="img_logo">   
+            <a href="">
             </a>
             <br><br>
         </div>
         <div class='container'>
-            <form method="POST" class="form" action = "{%  url 'login' %}">
+            <form method="POST" class="form" action = "{%  url 'LOGIN' %}">
                 {% csrf_token %}
+                <img src="{% static 'img/logo_pequeno.png' %}" alt="logo" class="img_logo">   
                 <label for="Username" class="lab">Nome:</label>
                 <input type="text" id="Username" name="Username" class="text" required>
                 <br><br>
                 <label for="password" class="lab">Senha:</label>
                 <input type="password" id="password" name="password" class="text" required>
                 <br><br>
+                <a href="{% url 'CADASTRO' %}">
+                    Ainda não tem cadastro? Clique aqui para se cadastrar.
+                </a>
                 <button type="submit" class="btn_Entrar">Entrar</button>
             </form>
         </div>

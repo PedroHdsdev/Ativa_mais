@@ -1,0 +1,128 @@
+/* Geral */
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    border: none;
+    background-color: white;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
+}
+
+.head_title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    margin-bottom: 15px;
+    color: black;
+}
+
+a:hover{
+    color: rgba(245, 0, 0, 0.8);
+}
+
+/* Cabeçalho */
+.head_cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #555151;
+    border-bottom: 3px solid #555151;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 10vh;
+    padding: 0 20px;
+    z-index: 999;
+}
+
+/* Container Principal */
+.container {
+    width: 100%;
+    height: calc(100vh - 10vh); 
+    margin-top: 10vh;
+    display: contents;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+}
+
+.form{
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+    margin-top: 5%;
+    border-radius: none;
+    border-top: 3px solid #555151;
+    border-bottom: 3px solid #555151;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width:  40%;
+    height: 60%;
+    padding: 8px;
+}
+
+.lab{
+    display: block;
+    font-size: 22px;
+    margin-top:-5px;
+    margin-left: 15px;
+    float: left;
+    
+}
+
+.text{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top:8px;
+    padding: 8px;
+    margin-left: 20px;
+    float: left;
+    margin-bottom: -11px;
+    box-sizing: border-box;
+}
+
+.btn_Entrar{
+    top: 70%; 
+    left: 40%; 
+    margin-top: none;
+    padding: 15px 30px;
+    background-color: rgba(0, 0, 0, 0.6); 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-bottom: none;
+}
+
+.btn_Entrar:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+    .content {
+        margin-left: 220px;
+    }
+}
