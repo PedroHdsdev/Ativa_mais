@@ -5,33 +5,38 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <title>Cadastro</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-
-        <link rel='stylesheet' href="{% static 'css/style_login.css' %}">
+        <link rel='stylesheet' href="{% static 'css/style_cadastro.css' %}">
     </head>
     <body>
         <div class="head_cont">
-            <a href="">
-            </a>
-            <img src="{% static 'img/logo_p.png' %}" alt="logo" class="img_logo">  
-            <br><br>
+            <div class="header-content">
+                <h1>CONECTANDO A MELHOR IDADE COM A OPORTUNIDADE</h1>
+            </div>
         </div>
+        
+        <!-- Logo centralizado adicionado aqui -->
+        <div class="logo-center">
+            <img src="{% static 'img/logo_pequeno.png' %}" alt="logo" class="img_logo">   
+        </div>
+        
         <div class='container'>
-            <form method="POST" class="form" action = "{%  url 'LOGIN' %}">
+            <form method="POST" class="form" action="{% url 'LOGIN' %}">
+                <h2 class="form-title">SOU CANDIDATO</h2>
                 {% csrf_token %}
- 
-                <div  class="field">
-                <label for="Username" class="lab">Nome:</label>
-                <input type="text" id="Username" name="Username" class="text" required>
+                
+                <div class="field">
+                    <label for="Username" class="lab">Nome:</label>
+                    <input type="text" id="Username" name="Username" class="text" required>
                 </div>
-                <div  class="field">
-                <label for="password" class="lab">Senha:</label>
-                <input type="password" id="password" name="password" class="text" required>
+                <div class="field">
+                    <label for="password" class="lab">Senha:</label>
+                    <input type="password" id="password" name="password" class="text" required>
                 </div>
-                <div  class="field">
-                <label for="conf_password" class="lab">Confirmar Senha:</label>
-                <input type="password" id="conf_password" name="conf_password" class="text" required>
+                <div class="field">
+                    <label for="conf_password" class="lab">Confirmar Senha:</label>
+                    <input type="password" id="conf_password" name="conf_password" class="text" required>
                 </div>
-                <div  class="field">
+                <div class="field">
                     <label for="m_email" class="lab">E-mail</label>
                     <input type="email" id="m_email" name="m_email" class="text" placeholder="" required>
                 </div>

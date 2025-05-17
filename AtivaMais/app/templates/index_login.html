@@ -1,19 +1,21 @@
 {% load static %}
 <html>
+<html>
     <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <title>login</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
         <link rel='stylesheet' href="{% static 'css/style_login.css' %}">
     </head>
     <body>
         <div class="head_cont">
-            <a href="">
-            </a>
-            <br><br>
+            <div class="header-content">
+                <h1>CONECTANDO A <span class="highlight">MELHOR IDADE</span> COM A <span class="highlight">OPORTUNIDADE</span></h1>
+            </div>
         </div>
+    
         <div class='container'>
             <form method="POST" class="form" action = "{%  url 'LOGIN' %}">
                 {% csrf_token %}
