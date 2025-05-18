@@ -31,8 +31,8 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f01212;
-    border-bottom: 3px solid #555151;
+    background: url('../img/fundo_head.jpg');
+    border-bottom: 2px solid #9ed6d7;
     width: 100%;
     position: fixed;
     top: 0;
@@ -70,15 +70,15 @@ a {
 
 /* Sidebar */
 .sidebar {
-    width: 23%; 
+    width: 20%; 
     height: calc(100% - 10%); /* Ocupa toda a altura */
-    background-color: #555151;
+    background-color: #969393;
     color: white;
     position: fixed; /* Fixado na lateral */
     top: 10%;
     left: 0;
     border-radius: 0px 10px 0px 10px;
-    border: 3px solid #555151;
+    border: 3px solid #969393;
     transition: transform 0.3s ease; 
     transform: translateX(-100%); /* Oculto inicialmente */
     z-index: 999;
@@ -101,7 +101,7 @@ a {
 }
 
 .sidebar ul li a:hover {
-    background-color: #007bff;
+    background-color: #9ed5d7;
     text-decoration:none;
 }
 .sidebar.hidden {
@@ -112,11 +112,11 @@ a {
     transform: translateX(0);
 }
 .sidebar ul li.selected {
-    background-color: #555151; 
+    background-color: #969393; 
     color: #fff;
 }
 .sidebar ul:not(.clicked):hover {
-    background-color: #555151;
+    background-color: #969393;
     color: #fff;
 }
 
@@ -130,7 +130,7 @@ a {
 .btn_menu {
     margin-left: 10px;
     margin-right: 0;
-    background-color: #333;
+    background-color: #969393;
     color: white;
     border: none;
     border-radius: 5px;
@@ -155,6 +155,8 @@ a {
     color: white;
     font-weight: bold;
     cursor: pointer;
+    border-radius: 10px;
+    text-align: center;
     transition: background-color 0.3s;
 }
 .submenu {

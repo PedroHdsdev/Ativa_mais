@@ -14,16 +14,25 @@
             </div>
         </div>
         
-        <!-- Logo centralizado adicionado aqui -->
+        <!-- Logo centralizado adicionado aqui 
         <div class="logo-center">
             <img src="{% static 'img/logo_pequeno.png' %}" alt="logo" class="img_logo">   
         </div>
-        
+        -->
         <div class='container'>
+            <div id="myModal_cad" class="modal">
+            <div class="modal-content">
+            <h3>Você é Candidato ou Recrutador?</h3>
+            <form onsubmit="return false;"> <!-- Evita submit imediato -->
+                <button type="button" class="btn_modal" onclick="escolherPerfil('C')">CANDIDATO</button>
+                <button type="button" class="btn_modal" onclick="escolherPerfil('R')">RECRUTADOR</button>
+            </form>
+            </div>
+            </div>
             <form method="POST" class="form" action="{% url 'LOGIN' %}">
                 <h2 class="form-title">SOU CANDIDATO</h2>
                 {% csrf_token %}
-                
+                <input type="hidden" name="perfil" id="perfil">
                 <div class="field">
                     <label for="Username" class="lab">Nome:</label>
                     <input type="text" id="Username" name="Username" class="text" required>
@@ -43,5 +52,6 @@
                 <button type="submit" class="btn_Entrar">Cadastrar</button>
             </form>
         </div>
+        <script src="{% static 'js/script_cadastro.js' %}"></script>
     </body>
 </html>

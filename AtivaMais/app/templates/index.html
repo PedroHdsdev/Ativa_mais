@@ -11,13 +11,14 @@
     
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block styles %}{% endblock %}
+    
 </head>
 <body>
     <div class="head_cont">
         <button class="btn_menu" onclick="toggleMenu()">☰</button>
         <div class="head_title">
             <a href="">
-                <h2>{% block titlepage %}page{% endblock %}</2h>
+                <!-- <h2>{% block titlepage %}page{% endblock %}</2h> -->
             </a>
         </div>
         <div>
@@ -32,6 +33,12 @@
                         <a href="" class="menu-item" data-target="">
                             Perfil
                         </a>
+                        <a href="" class="menu-item" data-target="">
+                            Cursos
+                        </a>
+                        <a href="" class="menu-item" data-target="">
+                            Vagas enviadas
+                        </a>
                         <!-- sub menu -->
                         <ul id="" class="submenu hidden">
                             <li>
@@ -44,13 +51,16 @@
             </ul>
         </div>
     </div>
+    
     <div class="container">
         {% block container %}{% endblock %}
     </div>
+    <!--
     <div class="rodape">
-        <!-- {% block rodape %}{% endblock %} -->
+        {% block rodape %}{% endblock %}
         <img src="{% static 'img/logo_p.png' %}" alt="logo" class="img_logo">
     </div>
+    -->
     <script src="{% static 'js/script.js' %}"></script>
     {% block scripts %}{% endblock %}
 </body>
