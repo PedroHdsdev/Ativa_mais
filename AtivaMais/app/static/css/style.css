@@ -72,13 +72,13 @@ a {
 .sidebar {
     width: 20%; 
     height: calc(100% - 10%); /* Ocupa toda a altura */
-    background-color: #969393;
+    background-color: #2d6a4f;
     color: white;
     position: fixed; /* Fixado na lateral */
     top: 10%;
     left: 0;
     border-radius: 0px 10px 0px 10px;
-    border: 3px solid #969393;
+    border: 3px solid  #2d6a4f;
     transition: transform 0.3s ease; 
     transform: translateX(-100%); /* Oculto inicialmente */
     z-index: 999;
@@ -112,11 +112,11 @@ a {
     transform: translateX(0);
 }
 .sidebar ul li.selected {
-    background-color: #969393; 
+    background-color:  #2d6a4f; 
     color: #fff;
 }
 .sidebar ul:not(.clicked):hover {
-    background-color: #969393;
+    background-color:  #2d6a4f;
     color: #fff;
 }
 
@@ -130,7 +130,7 @@ a {
 .btn_menu {
     margin-left: 10px;
     margin-right: 0;
-    background-color: #969393;
+    background-color:  #2d6a4f;
     color: white;
     border: none;
     border-radius: 5px;
@@ -154,7 +154,7 @@ a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    cursor: pointer;
+    cursor: pointer;    
     border-radius: 10px;
     text-align: center;
     transition: background-color 0.3s;

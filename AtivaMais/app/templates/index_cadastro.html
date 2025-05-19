@@ -8,12 +8,7 @@
         <link rel='stylesheet' href="{% static 'css/style_cadastro.css' %}">
     </head>
     <body>
-        <div class="head_cont">
-            <div class="header-content">
-                <h1>CONECTANDO A MELHOR IDADE COM A OPORTUNIDADE</h1>
-            </div>
-        </div>
-        
+   
         <!-- Logo centralizado adicionado aqui 
         <div class="logo-center">
             <img src="{% static 'img/logo_pequeno.png' %}" alt="logo" class="img_logo">   
@@ -30,7 +25,7 @@
             </div>
             </div>
             <form method="POST" class="form" action="{% url 'LOGIN' %}">
-                <h2 class="form-title">SOU CANDIDATO</h2>
+                <h2 class="form-title">CADADASTRO</h2>
                 {% csrf_token %}
                 <input type="hidden" name="perfil" id="perfil">
                 <div class="field">
