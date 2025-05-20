@@ -1,17 +1,226 @@
-.prncipal{
-    display: block;
-    justify-items: center;
-    width:  100%;
-    height: 100%;
-    margin: none;
+/* Estilos gerais */
+.principal {
+    max-width: 1000px;  /* Aumentado de 800px para 1000px */
+    margin: 0 auto;
+    padding: 30px;  /* Padding aumentado */
+    font-family: Arial, sans-serif;
+   
 }
 
-.form{
-    width: 80%;
-    height: 100%;
-    padding: 5px 3px;
+.titulo-principal {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 28px;  /* Título maior */
+}
+
+/* Estilos do formulário - agora mais largo */
+.form-curriculo {
+    background-color: #ffffff;
+    padding: 30px 40px;  /* Mais espaço horizontal (40px) */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    width: 90%;  /* Ocupa 90% do container principal */
+    max-width: 900px;  /* Largura máxima aumentada */
+}
+
+/* Seções mais amplas */
+.secao {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 25px;  /* Padding aumentado */
+    margin-bottom: 25px;
     background-color: white;
-    border: 2px solid  #2d6a4f;
-    border-radius: 10px 10px 0px 0px;
-    margin: none;
+}
+
+.secao legend {
+    font-weight: bold;
+    color: rgba(219, 150, 1, 0.938);
+    padding: 0 15px;
+    font-size: 18px;
+}
+
+/* Campos de formulário mais amplos */
+.campo-form {
+    margin-bottom: 20px;
+    width: 100%;  /* Garante que ocupe toda a largura */
+}
+
+.campo-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 15px;
+}
+
+/* Caixas de texto significativamente maiores */
+.campo-form input[type="text"],
+.campo-form input[type="email"],
+.campo-form input[type="tel"],
+.campo-form input[type="url"],
+.campo-form input[type="number"],
+.campo-form input[type="date"],
+.campo-form select,
+.campo-form textarea {
+    width: 100%;
+    padding: 12px 15px;  /* Mais padding horizontal */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    min-width: 100%;  /* Garante que não encolha */
+}
+
+/* Textareas especialmente ampliadas */
+.campo-form textarea {
+    resize: vertical;
+    min-height: 120px;  /* Altura aumentada */
+    width: 100%;
+    padding: 15px;  /* Mais espaço interno */
+}
+
+/* Campos lado a lado com mais espaço */
+.campo-duplo {
+    display: flex;
+    gap: 20px;  /* Espaço aumentado entre campos */
+    width: 100%;
+}
+
+.campo-duplo .campo-form {
+    flex: 1;
+    min-width: 0;  /* Permite que os campos se ajustem */
+}
+
+/* Checkboxes com mais espaço */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    font-weight: normal;
+    color: #555;
+    font-size: 14px;
+}
+
+.checkbox-label input {
+    margin-right: 10px;
+}
+
+/* Botões mais destacados */
+.btn-adicionar {
+    background-color: #2d6a4f;
+    color: white;
+    border: none;
+    padding: 10px 20px;  /* Botões maiores */
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 15px;
+    width: auto;  /* Largura automática */
+    min-width: 180px;  /* Largura mínima aumentada */
+}
+
+.btn-remover {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 15px;
+    min-width: 150px;
+}
+
+/* Ações do formulário mais espaçosas */
+.acoes-form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Botões principais maiores */
+.btn-salvar, .btn-visualizar {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    max-width: 48%;  /* Largura controlada */
+    background-color: rgba(219, 150, 1, 0.938); /* Nova cor aplicada */
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-salvar:hover, .btn-visualizar:hover {
+    background-color: rgba(199, 135, 1, 0.938); /* Cor mais escura no hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(219, 150, 1, 0.3);
+}
+/* Lista de habilidades mais espaçosa */
+.habilidades-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Linhas divisórias mais visíveis */
+.formacao-item hr,
+.experiencia-item hr,
+.idioma-item hr {
+    border: 0;
+    height: 1px;
+    background-color: #eee;
+    margin: 20px 0;
+}
+
+/* Campo de arquivo mais amplo */
+.campo-form input[type="file"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: white;
+    width: 100%;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+    .principal {
+        padding: 20px 15px;
+        max-width: 100%;
+    }
+    
+    .form-curriculo {
+        padding: 20px;
+        width: 100%;
+    }
+    
+    .campo-duplo {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .acoes-form {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn-salvar, .btn-visualizar {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .btn-adicionar, .btn-remover {
+        width: 100%;
+    }
+    
+    .habilidades-lista {
+        grid-template-columns: 1fr;
+    }
 }
