@@ -17,12 +17,9 @@
     <div class="head_cont">
         <button class="btn_menu" onclick="toggleMenu()">☰</button>
         <div class="head_title">
-            <a href="">
-                <!-- <h2>{% block titlepage %}page{% endblock %}</2h> -->
-            </a>
         </div>
         <div>
-            <a href="">
+            <a href="{% url 'HOME' %}">
                 <img src="{% static 'img/logo_p.png' %}" alt="logo" class="img_logo">
             </a>
         </div>
@@ -30,16 +27,13 @@
         <div id="sidebar" class="sidebar hidden">
             <ul class="menu-list">
                     <li>
-                        <a href="" class="menu-item" data-target="">
+                        <a href="{% url 'perfil' %}" class="menu-item">
                             Perfil
                         </a>
-                        <a href="" class="menu-item" data-target="">
+                        <a href="{% url 'cursos' %}" class="menu-item">
                             Cursos
                         </a>
-                        <a href="" class="menu-item" data-target="">
-                            Vagas enviadas
-                        </a>
-                        <!-- sub menu -->
+                        <!-- sub menu 
                         <ul id="" class="submenu hidden">
                             <li>
                                 <a href="" class="submenu-item">
@@ -47,6 +41,7 @@
                                 </a>
                             </li>
                         </ul>
+                        -->
                     </li>
             </ul>
         </div>
@@ -55,12 +50,7 @@
     <div class="container">
         {% block container %}{% endblock %}
     </div>
-    <!--
-    <div class="rodape">
-        {% block rodape %}{% endblock %}
-        <img src="{% static 'img/logo_p.png' %}" alt="logo" class="img_logo">
-    </div>
-    -->
+
     <script src="{% static 'js/script.js' %}"></script>
     {% block scripts %}{% endblock %}
 </body>

@@ -21,3 +21,12 @@ def CADASTRO(request):
 
 def HOME(request):
      return render(request, 'index_home.html')
+
+def CURSOS(request):
+     return render(request, 'index_cursos.html')
+
+def PERFIL(request):
+     return render(request, 'index_perfil.html')
+
+def VAGADETALHES(request):
+     return render(request, 'index_vagadetalhes.html')

@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}Perfil{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/style_perfil.css' %}">
+{% endblock %}
+
+{% block container %}
+<div class="prncipal">
+ <form method="POST" class="form" action = "{%  url 'LOGIN' %}"></form>
+    
+    <label for="Username" class="lab">Nome:</label>
+    <input type="text" id="Username" name="Username" class="text" required>
+    
+    <label for="Username" class="lab">Endereço:</label>
+    <input type="text" id="Username" name="Username" class="text" required>
+    
+    <label for="Username" class="lab">Email:</label>
+    <input type="text" id="Username" name="Username" class="text" required>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/script_perfil.js' %}"></script>
+{% endblock %}
