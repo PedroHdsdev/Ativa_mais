@@ -119,7 +119,7 @@ class Curriculo(models.Model):
 
     class Meta:
         managed = True
-        db_table = 'django_session'
+        db_table = 'curriculo'
 
 class Vagas(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -132,7 +132,7 @@ class Vagas(models.Model):
 
     class Meta:
         managed = True
-        db_table = 'django_session'
+        db_table = 'vagas'
 
 class Cursos(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -145,7 +145,7 @@ class Cursos(models.Model):
 
     class Meta:
         managed = True
-        db_table = 'django_session'
+        db_table = 'cursos'
 
 class Modulos(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -158,7 +158,7 @@ class Modulos(models.Model):
 
     class Meta:
         managed = True
-        db_table = 'django_session'
+        db_table = 'modulos'
 
 class User_Vagas(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -167,7 +167,7 @@ class User_Vagas(models.Model):
 
     class Meta:
         managed = True
-        db_table = 'django_session'
+        db_table = 'user_vagas'
 
 class User_Cursos(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -176,7 +176,7 @@ class User_Cursos(models.Model):
 
     class Meta:
         managed = True
-        db_table = 'django_session'
+        db_table = 'user_cursos'
 
 class Modulos_Cursos(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -186,4 +186,4 @@ class Modulos_Cursos(models.Model):
 
     class Meta:
         managed = True
-        db_table = 'django_session'
+        db_table = 'modulos_cursos'
