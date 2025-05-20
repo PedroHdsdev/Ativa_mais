@@ -1,28 +1,294 @@
 {% extends 'index.html' %}
 {% load static %}
 
-{% block title %}Perfil{% endblock %}
+{% block title %}Perfil do Candidato{% endblock %}
 
 {% block styles %}
     <link rel="stylesheet" href="{% static 'css/style_perfil.css' %}">
 {% endblock %}
 
 {% block container %}
-<div class="prncipal">
- <form method="POST" class="form" action = "{%  url 'login' %}"></form>
+<div class="principal">
+    <h1 class="titulo-principal">MEU CURRÍCULO</h1>
     
-    <label for="Username" class="lab">Nome:</label>
-    <input type="text" id="Username" name="Username" class="text" required>
-    
-    <label for="Username" class="lab">Endereço:</label>
-    <input type="text" id="Username" name="Username" class="text" required>
-    
-    <label for="Username" class="lab">Email:</label>
-    <input type="text" id="Username" name="Username" class="text" required>
-
+    <form method="POST" class="form-curriculo" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <!-- Seção de Dados Pessoais -->
+        <fieldset class="secao">
+            <legend>Dados Pessoais</legend>
+            
+            <div class="campo-form">
+                <label for="nome_completo">Nome Completo:</label>
+                <input type="text" id="nome_completo" name="nome_completo" required>
+            </div>
+            
+            <div class="campo-form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="campo-form">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required>
+            </div>
+            
+            <div class="campo-form">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco">
+            </div>
+            
+            <div class="campo-form">
+                <label for="linkedin">LinkedIn:</label>
+                <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/seu-perfil">
+            </div>
+            
+           
+        </fieldset>
+        
+        <!-- Seção de Formação Acadêmica -->
+        <fieldset class="secao">
+            <legend>Formação Acadêmica</legend>
+            
+            <div id="formacoes">
+                <div class="formacao-item">
+                    <div class="campo-form">
+                        <label for="formacao_0_curso">Curso:</label>
+                        <input type="text" id="formacao_0_curso" name="formacao_0_curso" required>
+                    </div>
+                    
+                    <div class="campo-form">
+                        <label for="formacao_0_instituicao">Instituição:</label>
+                        <input type="text" id="formacao_0_instituicao" name="formacao_0_instituicao" required>
+                    </div>
+                    
+                    <div class="campo-duplo">
+                        <div class="campo-form">
+                            <label for="formacao_0_inicio">Ano de Início:</label>
+                            <input type="number" id="formacao_0_inicio" name="formacao_0_inicio" min="1900" max="2099">
+                        </div>
+                        
+                        <div class="campo-form">
+                            <label for="formacao_0_conclusao">Ano de Conclusão:</label>
+                            <input type="number" id="formacao_0_conclusao" name="formacao_0_conclusao" min="1900" max="2099">
+                        </div>
+                    </div>
+                    
+                    <div class="campo-form">
+                        <label for="formacao_0_descricao">Descrição (opcional):</label>
+                        <textarea id="formacao_0_descricao" name="formacao_0_descricao" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="button" class="btn-adicionar" id="adicionar-formacao">+ Adicionar Formação</button>
+        </fieldset>
+        
+        <!-- Seção de Experiência Profissional -->
+        <fieldset class="secao">
+            <legend>Experiência Profissional</legend>
+            
+            <div id="experiencias">
+                <div class="experiencia-item">
+                    <div class="campo-form">
+                        <label for="experiencia_0_cargo">Cargo:</label>
+                        <input type="text" id="experiencia_0_cargo" name="experiencia_0_cargo" required>
+                    </div>
+                    
+                    <div class="campo-form">
+                        <label for="experiencia_0_empresa">Empresa:</label>
+                        <input type="text" id="experiencia_0_empresa" name="experiencia_0_empresa" required>
+                    </div>
+                    
+                    <div class="campo-duplo">
+                        <div class="campo-form">
+                            <label for="experiencia_0_inicio">Data de Início:</label>
+                            <input type="date" id="experiencia_0_inicio" name="experiencia_0_inicio">
+                        </div>
+                        
+                        <div class="campo-form">
+                            <label for="experiencia_0_fim">Data de Término:</label>
+                            <input type="date" id="experiencia_0_fim" name="experiencia_0_fim">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="experiencia_0_atual"> Atualmente trabalho aqui
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="campo-form">
+                        <label for="experiencia_0_descricao">Descrição das Atividades:</label>
+                        <textarea id="experiencia_0_descricao" name="experiencia_0_descricao" rows="4" required></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="button" class="btn-adicionar" id="adicionar-experiencia">+ Adicionar Experiência</button>
+        </fieldset>
+       
+        
+        <!-- Seção de Idiomas -->
+        <fieldset class="secao">
+            <legend>Idiomas</legend>
+            
+            <div id="idiomas">
+                <div class="idioma-item">
+                    <div class="campo-duplo">
+                        <div class="campo-form">
+                            <label for="idioma_0_nome">Idioma:</label>
+                            <input type="text" id="idioma_0_nome" name="idioma_0_nome">
+                        </div>
+                        
+                        <div class="campo-form">
+                            <label for="idioma_0_nivel">Nível:</label>
+                            <select id="idioma_0_nivel" name="idioma_0_nivel">
+                                <option value="basico">Básico</option>
+                                <option value="intermediario">Intermediário</option>
+                                <option value="avancado">Avançado</option>
+                                <option value="fluente">Fluente</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="button" class="btn-adicionar" id="adicionar-idioma">+ Adicionar Idioma</button>
+        </fieldset>
+        
+        <div class="acoes-form">
+            <button type="submit" class="btn-salvar">Salvar Currículo</button>
+            <button type="button" class="btn-visualizar">Visualizar Currículo</button>
+        </div>
+    </form>
 </div>
 {% endblock %}
 
 {% block scripts %}
     <script src="{% static 'js/script_perfil.js' %}"></script>
+    <script>
+        // Função para adicionar novos campos de formação
+        document.getElementById('adicionar-formacao').addEventListener('click', function() {
+            const container = document.getElementById('formacoes');
+            const index = container.children.length;
+            
+            const novoItem = document.createElement('div');
+            novoItem.className = 'formacao-item';
+            novoItem.innerHTML = `
+                <hr>
+                <div class="campo-form">
+                    <label for="formacao_${index}_curso">Curso:</label>
+                    <input type="text" id="formacao_${index}_curso" name="formacao_${index}_curso" required>
+                </div>
+                
+                <div class="campo-form">
+                    <label for="formacao_${index}_instituicao">Instituição:</label>
+                    <input type="text" id="formacao_${index}_instituicao" name="formacao_${index}_instituicao" required>
+                </div>
+                
+                <div class="campo-duplo">
+                    <div class="campo-form">
+                        <label for="formacao_${index}_inicio">Ano de Início:</label>
+                        <input type="number" id="formacao_${index}_inicio" name="formacao_${index}_inicio" min="1900" max="2099">
+                    </div>
+                    
+                    <div class="campo-form">
+                        <label for="formacao_${index}_conclusao">Ano de Conclusão:</label>
+                        <input type="number" id="formacao_${index}_conclusao" name="formacao_${index}_conclusao" min="1900" max="2099">
+                    </div>
+                </div>
+                
+                <div class="campo-form">
+                    <label for="formacao_${index}_descricao">Descrição (opcional):</label>
+                    <textarea id="formacao_${index}_descricao" name="formacao_${index}_descricao" rows="3"></textarea>
+                </div>
+                
+                <button type="button" class="btn-remover">Remover Formação</button>
+            `;
+            
+            container.appendChild(novoItem);
+        });
+        
+        // Função para adicionar novos campos de experiência
+        document.getElementById('adicionar-experiencia').addEventListener('click', function() {
+            const container = document.getElementById('experiencias');
+            const index = container.children.length;
+            
+            const novoItem = document.createElement('div');
+            novoItem.className = 'experiencia-item';
+            novoItem.innerHTML = `
+                <hr>
+                <div class="campo-form">
+                    <label for="experiencia_${index}_cargo">Cargo:</label>
+                    <input type="text" id="experiencia_${index}_cargo" name="experiencia_${index}_cargo" required>
+                </div>
+                
+                <div class="campo-form">
+                    <label for="experiencia_${index}_empresa">Empresa:</label>
+                    <input type="text" id="experiencia_${index}_empresa" name="experiencia_${index}_empresa" required>
+                </div>
+                
+                <div class="campo-duplo">
+                    <div class="campo-form">
+                        <label for="experiencia_${index}_inicio">Data de Início:</label>
+                        <input type="date" id="experiencia_${index}_inicio" name="experiencia_${index}_inicio">
+                    </div>
+                    
+                    <div class="campo-form">
+                        <label for="experiencia_${index}_fim">Data de Término:</label>
+                        <input type="date" id="experiencia_${index}_fim" name="experiencia_${index}_fim">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="experiencia_${index}_atual"> Atualmente trabalho aqui
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="campo-form">
+                    <label for="experiencia_${index}_descricao">Descrição das Atividades:</label>
+                    <textarea id="experiencia_${index}_descricao" name="experiencia_${index}_descricao" rows="4" required></textarea>
+                </div>
+                
+                <button type="button" class="btn-remover">Remover Experiência</button>
+            `;
+            
+            container.appendChild(novoItem);
+        });
+        
+        // Função para adicionar novos campos de idioma
+        document.getElementById('adicionar-idioma').addEventListener('click', function() {
+            const container = document.getElementById('idiomas');
+            const index = container.children.length;
+            
+            const novoItem = document.createElement('div');
+            novoItem.className = 'idioma-item';
+            novoItem.innerHTML = `
+                <hr>
+                <div class="campo-duplo">
+                    <div class="campo-form">
+                        <label for="idioma_${index}_nome">Idioma:</label>
+                        <input type="text" id="idioma_${index}_nome" name="idioma_${index}_nome">
+                    </div>
+                    
+                    <div class="campo-form">
+                        <label for="idioma_${index}_nivel">Nível:</label>
+                        <select id="idioma_${index}_nivel" name="idioma_${index}_nivel">
+                            <option value="basico">Básico</option>
+                            <option value="intermediario">Intermediário</option>
+                            <option value="avancado">Avançado</option>
+                            <option value="fluente">Fluente</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn-remover">Remover Idioma</button>
+            `;
+            
+            container.appendChild(novoItem);
+        });
+        
+        // Delegar eventos para botões de remover
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('btn-remover')) {
+                e.target.parentNode.remove();
+            }
+        });
+    </script>
 {% endblock %}
