@@ -112,3 +112,78 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
+
+class Curriculo(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    
+
+    class Meta:
+        managed = True
+        db_table = 'django_session'
+
+class Vagas(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    nome       = models.CharField(max_length=40)
+    empresa    = models.CharField(max_length=40)
+    descricao  = models.CharField(max_length=250)
+    beneficios = models.CharField(max_length=100)
+    salario    = models.FloatField(null=True)
+    user       = models.ForeignKey(AuthUser, on_delete=models.CASCADE, related_name="user")
+
+    class Meta:
+        managed = True
+        db_table = 'django_session'
+
+class Cursos(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    nome        = models.CharField(max_length=40)
+    descricao   = models.CharField(max_length=100)
+    qnt_modulo  = models.IntegerField()
+    valor       = models.FloatField()
+    gratis      = models.BooleanField() 
+    user        =  models.ForeignKey(AuthUser, on_delete=models.CASCADE, related_name="user")
+
+    class Meta:
+        managed = True
+        db_table = 'django_session'
+
+class Modulos(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    name      = models.CharField( max_length=40)
+    conteudo1 = models.CharField(max_length=250)
+    conteudo2 = models.CharField(max_length=250)
+    conteudo3 = models.CharField(max_length=250)
+    conteudo4 = models.CharField(max_length=250)
+    conteudo5 = models.CharField(max_length=250)
+
+    class Meta:
+        managed = True
+        db_table = 'django_session'
+
+class User_Vagas(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    user   =  models.ForeignKey(AuthUser, on_delete=models.CASCADE, related_name="user")
+    vaga   =  models.ForeignKey(Vagas, on_delete=models.CASCADE, related_name="vaga")
+
+    class Meta:
+        managed = True
+        db_table = 'django_session'
+
+class User_Cursos(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    user   =  models.ForeignKey(AuthUser, on_delete=models.CASCADE, related_name="user")
+    Curso  =  models.ForeignKey(Cursos, on_delete=models.CASCADE, related_name="curso")
+
+    class Meta:
+        managed = True
+        db_table = 'django_session'
+
+class Modulos_Cursos(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    nivel   =  models.IntegerField()
+    modulo  =  models.ForeignKey(Modulos, on_delete=models.CASCADE, related_name="modulo")
+    curso   =  models.ForeignKey(Cursos, on_delete=models.CASCADE, related_name="curso")
+
+    class Meta:
+        managed = True
+        db_table = 'django_session'
