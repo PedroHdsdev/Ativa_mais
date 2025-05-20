@@ -12,7 +12,8 @@ def LOGIN(request):
                lg(request, user)         
                return render(request, 'index_home.html')
           else:
-               return render(request, 'index_login.html')
+               vg_aviso = "usuario nao existe"
+               return render(request, 'index_login.html',{'vg_aviso'})
     
      return render(request, 'index_login.html')
 

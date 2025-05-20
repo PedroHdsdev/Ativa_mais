@@ -11,14 +11,14 @@
     </head>
     <body>
         <div class='container'>
-            <form method="POST" class="form" action = "{%  url 'LOGIN' %}">
+            <form method="POST" class="form" action = "{%  url 'login' %}">
                 {% csrf_token %}
                 <img src="{% static 'img/logo_pequeno.png' %}" alt="logo" class="img_logo">   
                 <label for="Username" class="lab">Nome:</label>
                 <input type="text" id="Username" name="Username" class="text" required>
                 <label for="password" class="lab">Senha:</label>
                 <input type="password" id="password" name="password" class="text" required>
-                <a href="{% url 'CADASTRO' %}">
+                <a href="{% url 'cadastro' %}">
                     Ainda não tem cadastro? Clique aqui para se cadastrar.
                 </a>
                 <button type="submit" class="btn_Entrar">Entrar</button>
