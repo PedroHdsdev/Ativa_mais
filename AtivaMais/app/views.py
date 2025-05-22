@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate, login as lg
+from django.db.models import Q
 from app.models import  AuthUser, AuthGroup, AuthUserGroups, Vagas, User_Vagas
+from app.models import Cursos, User_Cursos, Modulos, Modulos_Cursos
 
 def LOGIN(request):
      if request.method == "POST":
@@ -60,18 +62,33 @@ def CADASTRO(request):
 def HOME(request):
      if request.user.is_authenticated:
           grupo = request.session.get('grupo')
-
-          if grupo == "Recrutador":
-               vagas = Vagas.objects.filter(user=request.user)
-          else:
-               vagas =  Vagas.objects.all()
+          query = request.GET.get('Buscar', '')
           
-          return render(request, 'index_home.html',{'Grups':grupo, 'T_Vagas':vagas})     
+          if grupo == "Recrutador":
+               if query:
+                    vagas = Vagas.objects.filter( nome__icontains=query,
+                                                  user=request.user)
+               else:
+                    vagas = Vagas.objects.filter(user=request.user)
+          else:
+               if query:  
+                    vagas = Vagas.objects.filter(
+                                                  Q(nome__icontains=query) | Q(empresa__icontains=query)
+                                                  )
+               else:     
+                    vagas  = Vagas.objects.all()
+          
+          return render(request, 'index_home.html',{   'Grups':grupo,
+                                                       'T_Vagas':vagas,
+                                                       'query':query})     
 
      return render(request, 'index_login.html')
 
 def CURSOS(request):
      grupo = request.session.get('grupo')
+
+     t_Cursos = Cursos.objects.all()
+
      return render(request, 'index_cursos.html',{'Grups':grupo})
 
 def PERFIL(request):
@@ -82,6 +99,13 @@ def CAD_VAGAS(request):
      grupo = request.session.get('grupo')
      return render(request, 'index_cad_vagas.html',{'Grups':grupo})
 
-def VAGADETALHES(request):
-     grupo = request.session.get('grupo')
-     return render(request, 'index_vagadetalhes.html',{'Grups':grupo})
+def VAGADETALHES(request, id):
+     if request.user.is_authenticated:
+
+          grupo = request.session.get('grupo')
+          vaga = Vagas.objects.get(id=id)
+          
+          return render(request, 'index_vagadetalhes.html',{'Grups':grupo,
+                                                            'W_vagas':vaga})
+     
+     return render(request, 'index_login.html')

@@ -11,16 +11,20 @@
 <div class="prncipal">
 <div class="container01">
     <div class="search-bar-container">
-        <input type="text" placeholder="Pequisar vagas..." class="search-input">
-        <button class="search-button">Buscar</button>
+        <form method="get" action = "{%  url 'home' %}" class="search-bar-container">
+            <input type="text" name="Buscar" placeholder="Pesquisar vagas..." class="search-input" value="{{ query }}">
+            <button type="submit" class="search-button">Buscar</button>
+        </form>
     </div>
 </div>
 <div class="container02">
     {% for W_vagas in T_Vagas %}
-        <a href="{% url 'vagadetalhes' %}" class="container03">
+        <a href="{% url 'vagadetalhes' W_vagas.id %}">
             <div class="container03">
-            <h1>{{ W_vagas.nome }}</h1>
-            <h2>{{ W_vagas.empresa }}</h2>
+                <h1>Vaga:</h1>
+                <p>{{ W_vagas.nome }}</p>
+                <h2>Empresa:</h2>
+                <p>{{ W_vagas.empresa }}</p>    
             </div>
         </a>
     {% endfor %}

@@ -6,55 +6,56 @@
     margin: none;
 }
 
-.container01{
-    display: block;
+.container01, .container02 {
     width: 80%;
-    height: 300px;
-    border: 2px solid  #2d6a4f;
-    border-bottom: none;
+    border: 1px solid #2d6a4f;
+    box-sizing: border-box;
+    margin: 0 auto;  /* Centraliza */
+    padding: 20px;
+    background-color: #fff;
     border-radius: 10px;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-    margin-bottom: none;
 }
 
-.container02{
-    width: 80%;
-    height: 60%;
-    justify-items: center;
-    align-items: center;
-    background-color: white;
-    border: 2px solid  #2d6a4f;
-    border-radius: 10px 10px 0px 0px;
+/* Ajustes de bordas específicas se quiser manter o "encaixe" visual */
+.container01 {
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    margin-top: 50px; 
 }
 
-h1{
-    width: 100%;
-    margin-left: 20px;
-    color:black;
+.container02 {
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 50px;
 }
 
-h2{
-    width: 50%;
-    margin-left: 20px;
-    color:black;
+/* Ajustes adicionais para o minimalismo */
+h1, h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    margin: 10px 0;
+    color: #2d6a4f;
 }
-.text{
-    width: 100%;
-    margin-left: 20px;
-    color:black;
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #333;
+    margin: 5px 0 15px 0;
 }
+
 .btn-candidatar {
-    background-color: #2d6a4f;
-    float: right;
-    color: white;
-    border: none;
-    padding: 20px 25px;  /* Botões maiores */
-    border-radius: 6px;
+    background-color: transparent;
+    border: 1px solid #2d6a4f;
+    color: #2d6a4f;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 15px;
-    margin: 30px;
-    width: auto;  /* Largura automática */
-    min-width: 180px;  /* Largura mínima aumentada */
+    transition: background-color 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-candidatar:hover {
+    background-color: #2d6a4f;
+    color: #fff;
 }

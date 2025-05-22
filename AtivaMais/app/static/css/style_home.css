@@ -1,73 +1,60 @@
-.prncipal{
-    display: block;
-    justify-items: center;
-    width:  100%;
-    height: 100%;
-    margin: none;
-}
-
-h1{
-    float: left;
-    width: 80%;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    padding: 1px;
-    color: black;
-}
-
-h2{
-    float: left;
-    width: 80%;
-    margin-left: 10px;
-    margin-top: 0px;
-    margin-bottom: 5px;
-    padding: 1px;
-    color: black;
-    font-weight: normal;
-}
-
-h3{
-    margin-left: 5px;
-}
-
-.container01{
-    display: grid;
+.prncipal {
     width: 100%;
-    height: 200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container01, .container02 {
+    width: 80%;
+    box-sizing: border-box;
+}
+
+.container01 {
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin: none;
+    margin: 50px 0 20px 0;
 }
-.container02{
-    width: 80%;
-    height: 100%;
-    justify-items: center;
-    align-items: center;
+
+.container02 {
+    display: flex;
+    flex-direction: column; /* empilha os filhos verticalmente */
+    align-items: center; /* centraliza horizontalmente */
     background-color: white;
-    border: 2px solid  #2d6a4f;
-    border-radius: 10px 10px 0px 0px;
+    border: 2px solid #2d6a4f;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(45, 106, 79, 0.3);
+    padding: 20px;
+    width: 80%;
+    box-sizing: border-box;
 }
-.container03{
-    width: 97%;
-    height: 120px;
-    margin: 10px;
+
+.container03 {
+    display: flex;
+    flex-direction: column;
+    width: 90%; /* relativo ao container02 */
+    margin: 10px 0;
+    padding: 10px;
     border-radius: 5px;
-    border: 2px solid  #2d6a4f;
+    border: 2px solid #2d6a4f;
     background-color: white;
     transition: background-color 0.3s ease;
-
+    text-decoration: none;
+    color: inherit;
+    box-sizing: border-box;
 }
-.container03:hover{
+
+.container03:hover {
     background-color: #9ed6d7;
 }
-
 
 .search-bar-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px auto;
-    width: 600px;
+    width: 100%;
     max-width: 600px;
 }
 
@@ -93,4 +80,18 @@ h3{
 
 .search-button:hover {
     background-color: #2d6a4f;
+}
+
+h1, h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    margin: 10px 0;
+    color: #2d6a4f;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #333;
+    margin: 5px 0 15px 0;
 }

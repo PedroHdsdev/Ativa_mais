@@ -10,12 +10,19 @@
 {% block container %}
 <div class="prncipal">
     <div class="container01">
-        <button type="button" class="btn-candidatar" id="candidatar">Candidatar</button>
-        <h1>Nome da vaga</h1>
-        <h2>descrição breve</h2>
+        <h1>Vaga:</h1>
+        <p>{{ W_vagas.nome }}</p>
+        <h2>Empresa:</h2>
+        <p>{{ W_vagas.empresa }}</p>
+        <h2>Benefícios:</h2>
+        <p>{{ W_vagas.beneficios }}</p>
+        <h2>Salário:</h2>
+        <p>{{ W_vagas.salario }}</p>
     </div>
     <div class="container02">
-        
+        <h2>Descrição da vaga:</h2>
+        <p>{{ W_vagas.descricao }}</p>
+        <button type="button" class="btn-candidatar" id="candidatar">Candidatar</button>
     </div>
 </div>
 {% endblock %}
