@@ -142,6 +142,12 @@ a:hover {
     box-shadow: 0 6px 15px rgba(219, 150, 1, 0.452);
 }
 
+.aviso{
+    display: none;
+    margin: 10px;
+    color: red;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .form {

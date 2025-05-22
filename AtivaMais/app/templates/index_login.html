@@ -18,9 +18,14 @@
                 <input type="text" id="Username" name="Username" class="text" required>
                 <label for="password" class="lab">Senha:</label>
                 <input type="password" id="password" name="password" class="text" required>
+                {% if Aviso == True %} 
+                    <label for="Aviso" class="aviso" style="display: block;">Senha ou Usuario invalido!</label>
+                {% else %}
+                    <label for="Aviso" class="aviso" style="display: none;">Senha ou Usuario invalido!</label>
+                {% endif %}
                 <a href="{% url 'cadastro' %}">
                     Ainda não tem cadastro? Clique aqui para se cadastrar.
-                </a>
+                </a>                
                 <button type="submit" class="btn_Entrar">Entrar</button>
             </form>
         </div>

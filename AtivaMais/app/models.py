@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
@@ -28,7 +29,6 @@ class AuthPermission(models.Model):
         managed = False
         db_table = 'auth_permission'
         unique_together = (('content_type', 'codename'),)
-
 
 class AuthUser(models.Model):
     password = models.CharField(max_length=128)
@@ -123,8 +123,7 @@ class Cur_Pessoal(models.Model):
     rua      = models.CharField(max_length=40)
     numero   = models.CharField(max_length=4)
     links    = models.CharField(max_length=60)
-    user     = models.ForeignKey(AuthUser, on_delete=models.CASCADE, related_name="user_pessoal")
-    
+    user     = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_pessoal")
 
     class Meta:
         managed = True
@@ -137,7 +136,7 @@ class Cur_Academicos(models.Model):
     descricao  = models.CharField(max_length=250)
     dt_inicio  = models.DateField()
     dt_final   = models.DateField()  
-    user       = models.ForeignKey(AuthUser, on_delete=models.CASCADE, related_name="user_academico")
+    user       = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_academico")
 
     class Meta:
         managed = True
@@ -150,7 +149,7 @@ class Cur_Carreiras(models.Model):
     descricao = models.CharField(max_length=250)
     dt_inicio = models.DateField()
     dt_final  = models.DateField()
-    user      =  models.ForeignKey(AuthUser, on_delete=models.CASCADE, related_name="user_carreira")
+    user      =  models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_carreira")
 
     class Meta:
         managed = True
@@ -171,7 +170,7 @@ class Vagas(models.Model):
     descricao  = models.CharField(max_length=250)
     beneficios = models.CharField(max_length=100)
     salario    = models.FloatField(null=True)
-    user       = models.ForeignKey(AuthUser, on_delete=models.CASCADE, related_name="user_vaga")
+    user       = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_vaga")
 
     class Meta:
         managed = True
@@ -184,7 +183,7 @@ class Cursos(models.Model):
     qnt_modulo  = models.IntegerField()
     valor       = models.FloatField()
     gratis      = models.BooleanField() 
-    user        =  models.ForeignKey(AuthUser, on_delete=models.CASCADE, related_name="user_curso")
+    user        =  models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_curso")
 
     class Meta:
         managed = True
@@ -206,7 +205,7 @@ class Modulos(models.Model):
 class User_Idiomas(models.Model):
     id = models.BigAutoField(primary_key=True)
     nivel  = models.CharField(max_length=20)
-    user   =  models.ForeignKey(AuthUser, on_delete=models.CASCADE, related_name="user_n_idioma")
+    user   =  models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_n_idioma")
     idioma =  models.ForeignKey(Idiomas, on_delete=models.CASCADE, related_name="idioma_n_user")
 
 
@@ -216,7 +215,7 @@ class User_Idiomas(models.Model):
 
 class User_Vagas(models.Model):
     id = models.BigAutoField(primary_key=True)
-    user   =  models.ForeignKey(AuthUser, on_delete=models.CASCADE, related_name="user_n_vaga")
+    user   =  models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_n_vaga")
     vaga   =  models.ForeignKey(Vagas, on_delete=models.CASCADE, related_name="vaga_n_user")
 
     class Meta:
@@ -225,7 +224,7 @@ class User_Vagas(models.Model):
 
 class User_Cursos(models.Model):
     id = models.BigAutoField(primary_key=True)
-    user   =  models.ForeignKey(AuthUser, on_delete=models.CASCADE, related_name="user_n_curso")
+    user   =  models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_n_curso")
     Curso  =  models.ForeignKey(Cursos, on_delete=models.CASCADE, related_name="curso_n_user")
     modulo =  models.ForeignKey(Modulos, on_delete=models.CASCADE, related_name="modulo_curso",null=True)
 

@@ -19,15 +19,15 @@
             <div class="modal-content">
             <h3>Você é Candidato ou Recrutador?</h3>
             <form onsubmit="return false;"> <!-- Evita submit imediato -->
-                <button type="button" class="btn_modal" onclick="escolherPerfil('C')">CANDIDATO</button>
-                <button type="button" class="btn_modal" onclick="escolherPerfil('R')">RECRUTADOR</button>
+                <button type="button" class="btn_modal" onclick="escolherGrupo('Candidato')">CANDIDATO</button>
+                <button type="button" class="btn_modal" onclick="escolherGrupo('Recrutador')">RECRUTADOR</button>
             </form>
             </div>
             </div>
-            <form method="POST" class="form" action="{% url 'login' %}">
+            <form method="POST" class="form" action="{% url 'cadastro' %}">
                 <h2 class="form-title">CADADASTRO</h2>
                 {% csrf_token %}
-                <input type="hidden" name="perfil" id="perfil">
+                <input type="hidden" name="grupo" id="grupo">
                 <div class="field">
                     <label for="Username" class="lab">Nome:</label>
                     <input type="text" id="Username" name="Username" class="text" required>

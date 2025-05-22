@@ -7,15 +7,23 @@
 }
 
 h1{
-    margin-left: 5px;
+    float: left;
+    width: 80%;
+    margin-left: 10px;
+    margin-bottom: 10px;
     padding: 1px;
-    margin: none;
+    color: black;
 }
 
 h2{
-    margin-left: 5px;
+    float: left;
+    width: 80%;
+    margin-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 5px;
     padding: 1px;
-    margin: none;
+    color: black;
+    font-weight: normal;
 }
 
 h3{
@@ -33,18 +41,21 @@ h3{
 .container02{
     width: 80%;
     height: 100%;
-    padding: 5px 3px;
+    justify-items: center;
+    align-items: center;
     background-color: white;
     border: 2px solid  #2d6a4f;
     border-radius: 10px 10px 0px 0px;
-    margin: none;
 }
 .container03{
-    width: 100%;
-    height: 100px;
+    width: 97%;
+    height: 120px;
+    margin: 10px;
     border-radius: 5px;
+    border: 2px solid  #2d6a4f;
     background-color: white;
     transition: background-color 0.3s ease;
+
 }
 .container03:hover{
     background-color: #9ed6d7;

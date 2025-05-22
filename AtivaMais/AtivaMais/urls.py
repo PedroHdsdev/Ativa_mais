@@ -8,6 +8,7 @@ urlpatterns = [
     path('home/',views.HOME, name='home'),
     path('cursos/',views.CURSOS, name='cursos'),
     path('perfil/',views.PERFIL, name='perfil'),
+    path('CadastroVagas/',views.CAD_VAGAS, name='cadastrovagas'),
     path('vagadetalhes/',views.VAGADETALHES, name='vagadetalhes'),
     path('admin/', admin.site.urls),
 ]

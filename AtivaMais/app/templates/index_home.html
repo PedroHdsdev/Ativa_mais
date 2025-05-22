@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="{% static 'css/style_home.css' %}">
 {% endblock %}
 
-<!-- cabeçalho 
-{% block titlepage %}Inicio{% endblock %}
--->
-
-<!-- conteudo -->
 {% block container %}
 <div class="prncipal">
 <div class="container01">
@@ -21,18 +16,14 @@
     </div>
 </div>
 <div class="container02">
-    <a href="{% url 'vagadetalhes' %}" class="menu-item">
-        <div class="container03">
-            <h1>sdmsad</h1>
-            <h2>sdmsaddss.,dsas,da,s,sdsd</h2>
-        </div>
-    </a>
-    <a href="{% url 'vagadetalhes' %}" class="menu-item">
-        <div class="container03">
-            <h1>sdmsad</h1>
-            <h2>sdmsaddss.,dsas,da,s,sdsd</h2>
-        </div>
-    </a>
+    {% for W_vagas in T_Vagas %}
+        <a href="{% url 'vagadetalhes' %}" class="container03">
+            <div class="container03">
+            <h1>{{ W_vagas.nome }}</h1>
+            <h2>{{ W_vagas.empresa }}</h2>
+            </div>
+        </a>
+    {% endfor %}
 </div>
 </div>
 {% endblock %}
