@@ -34,17 +34,21 @@
 .container03 {
     display: flex;
     flex-direction: column;
-    width: 90%; /* relativo ao container02 */
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
+    max-width: 900px; /* Define uma largura máxima em pixels para telas grandes */
+    margin: 10px auto; /* 'auto' nas laterais centraliza horizontalmente */
+    padding:30PX 730px; /* Aumentei o padding para melhor espaçamento interno */
+    border-radius: 8px; /* Bordas mais arredondadas */
     border: 2px solid #2d6a4f;
     background-color: white;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease; /* Transição para todas as propriedades */
     text-decoration: none;
     color: inherit;
     box-sizing: border-box;
+    left: 10px;
+
+
 }
+
 
 .container03:hover {
     background-color: #9ed6d7;

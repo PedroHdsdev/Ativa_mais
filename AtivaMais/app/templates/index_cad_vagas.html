@@ -1,15 +1,130 @@
 {% extends 'index.html' %}
 {% load static %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Cadastro de Vagas{% endblock %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'css/style_home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_cad_vagas.css' %}">
 {% endblock %}
 
 {% block container %}
-<div class="prncipal">
-    <h1>Montar form de adastro de vagas</h1>
+<div class="principal">
+    <h1>CADASTRO VAGAS DE EMPREGO</h1>
+    
+    <form method="post" class="vaga-form">
+        {% csrf_token %}
+        
+        <!-- Informações Básicas -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="titulo">Título da Vaga</label>
+                <input type="text" id="titulo" name="titulo" required>
+            </div>
+            <div class="form-group">
+                <label for="area">Área de Atuação</label>
+                <select id="area" name="area" required>
+                    <option value="">Selecione...</option>
+                    <option value="TI">Tecnologia da Informação</option>
+                    <option value="ADM">Administração</option>
+                    <option value="RH">Recursos Humanos</option>
+                    <option value="FIN">Finanças</option>
+                    <option value="MKT">Marketing</option>
+                    <option value="VENDAS">Vendas</option>
+                    <option value="SAUDE">Saúde</option>
+                    <option value="EDUC">Educação</option>
+                    <option value="ENG">Engenharia</option>
+                    <option value="JUR">Jurídico</option>
+                    <option value="ATE">Atendimento</option>
+                    <option value="OUTROS">Outros</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="empresa">Empresa</label>
+                <input type="text" id="empresa" name="empresa" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="faixa_salarial">Faixa Salarial (R$)</label>
+                <input type="number" id="faixa_salarial" name="faixa_salarial" step="0.01" required>
+            </div>
+        </div>
+        
+        <!-- Modalidade de Trabalho -->
+        <div class="form-group">
+            <label>Modalidade de Trabalho</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="modalidade" value="PRESENCIAL" checked>
+                    <span>Presencial</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="modalidade" value="HOME_OFFICE">
+                    <span>Home Office</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="modalidade" value="HIBRIDO">
+                    <span>Híbrido</span>
+                </label>
+            </div>
+        </div>
+        
+        <!-- Campos condicionais para modalidade Híbrida -->
+        <div id="hibrido-fields" class="conditional-fields" style="display: none;">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="localizacao">Localização</label>
+                    <input type="text" id="localizacao" name="localizacao">
+                </div>
+                <div class="form-group">
+                    <label for="dias_presenciais">Dias presenciais</label>
+                    <input type="text" id="dias_presenciais" name="dias_presenciais" 
+                           placeholder="Ex: Segunda e Quarta">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Campos condicionais para modalidade Presencial -->
+        <div id="presencial-fields" class="conditional-fields">
+            <div class="form-group">
+                <label for="localizacao">Localização</label>
+                <input type="text" id="localizacao" name="localizacao">
+            </div>
+        </div>
+        
+        <!-- Tipo de Contratação -->
+        <div class="form-group">
+            <label for="tipo_contratacao">Tipo de Contratação</label>
+            <select id="tipo_contratacao" name="tipo_contratacao" required>
+                <option value="">Selecione...</option>
+                <option value="CLT">CLT</option>
+                <option value="PJ">Pessoa Jurídica</option>
+                <option value="FREELANCER">Freelancer</option>
+                <option value="ESTAGIO">Temporario</option>
+            </select>
+        </div>
+        
+        <!-- Descrição e Requisitos -->
+        <div class="form-group">
+            <label for="descricao">Descrição da Vaga</label>
+            <textarea id="descricao" name="descricao" rows="4" required></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="requisitos">Requisitos</label>
+            <textarea id="requisitos" name="requisitos" rows="4" required></textarea>
+        </div>
+        
+        <!-- Data de Validade -->
+        <div class="form-group">
+            <label for="data_validade">Válida até</label>
+            <input type="date" id="data_validade" name="data_validade" required>
+        </div>
+        
+        <button type="submit" class="btn-submit">Cadastrar Vaga</button>
+    </form>
 </div>
 {% endblock %}
 
