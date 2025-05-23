@@ -85,11 +85,20 @@ def HOME(request):
      return render(request, 'index_login.html')
 
 def CURSOS(request):
-     grupo = request.session.get('grupo')
+     if request.user.is_authenticated:
 
-     t_Cursos = Cursos.objects.all()
+          grupo = request.session.get('grupo')
+          query = request.GET.get('Buscar', '')
 
-     return render(request, 'index_cursos.html',{'Grups':grupo})
+          if query:
+               t_Cursos = Cursos.objects.filter(nome__icontains=query)
+          else:
+               t_Cursos = Cursos.objects.all()
+
+          return render(request, 'index_cursos.html',{ 'Grups':grupo,
+                                                       'T_Cursos':t_Cursos})
+     
+     return render(request, 'index_login.html')
 
 def PERFIL(request):
      grupo = request.session.get('grupo')
@@ -107,5 +116,32 @@ def VAGADETALHES(request, id):
           
           return render(request, 'index_vagadetalhes.html',{'Grups':grupo,
                                                             'W_vagas':vaga})
+     
+     return render(request, 'index_login.html')
+
+def CURSODETALHES(request, id):
+     if request.user.is_authenticated:
+
+          grupo = request.session.get('grupo')
+          curso = Cursos.objects.get(id=id)
+          
+          return render(request, 'index_cusodetalhes.html',{'Grups':grupo,
+                                                            'W_Curso':curso})
+     
+     return render(request, 'index_login.html')
+
+def MEUSCURSOS(request):
+     if request.user.is_authenticated:
+
+
+          return render(request, 'index_meuscursos.html')
+     
+     return render(request, 'index_login.html')
+
+def AULA(request, id):
+     if request.user.is_authenticated:
+
+          
+          return render(request, 'index_aula.html')
      
      return render(request, 'index_login.html')

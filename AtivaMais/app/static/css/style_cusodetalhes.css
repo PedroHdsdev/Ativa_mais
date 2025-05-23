@@ -1,0 +1,61 @@
+.prncipal{
+    display: block;
+    justify-items: center;
+    width:  100%;
+    height: 100%;
+    margin: none;
+}
+
+.container01, .container02 {
+    width: 80%;
+    border: 1px solid #2d6a4f;
+    box-sizing: border-box;
+    margin: 0 auto;  /* Centraliza */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+/* Ajustes de bordas específicas se quiser manter o "encaixe" visual */
+.container01 {
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    margin-top: 50px; 
+}
+
+.container02 {
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 50px;
+}
+
+/* Ajustes adicionais para o minimalismo */
+h1, h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    margin: 10px 0;
+    color: #2d6a4f;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #333;
+    margin: 5px 0 15px 0;
+}
+
+.btn-Comprar {
+    background-color: transparent;
+    border: 1px solid #2d6a4f;
+    color: #2d6a4f;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-Comprar:hover {
+    background-color: #2d6a4f;
+    color: #fff;
+}

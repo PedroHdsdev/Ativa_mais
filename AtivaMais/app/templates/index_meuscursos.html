@@ -4,23 +4,23 @@
 {% block title %}Cursos{% endblock %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'css/style_cursos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_meuscursos.css' %}">
 {% endblock %}
 
 {% block container %}
-<div class="prncipal">
+<div class="prncipal">  
     <div class="container01">
     <div class="search-bar-container">
-            <form method="get" action = "{%  url 'cursos' %}" class="search-bar-container">
+            <form method="get" action = "{%  url 'meuscursos' %}" class="search-bar-container">
                 <input type="text" name="Buscar" placeholder="Pesquisar Cursos..." class="search-input" value="{{ query }}">
                 <button type="submit" class="search-button">Buscar</button>
             </form>
         </div>
     </div>
-<h1 style= "margin-left: 5px; padding: 10px 0px;width: 80%;">Cursos a Venda</h1>      
+<h1 style= "margin-left: 5px; padding: 10px 0px;width: 80%;">Meus Cursos</h1>  
 <div class="container02">
      {% for W_Curso in T_Cursos %}
-        <a href="{% url 'cursodetalhes' W_Curso.id %}">
+        <a href="{% url 'aula' W_Curso.id %}">
             <div class="container03">
                 <h1>Vaga:</h1>
                 <p>{{ W_Curso.nome }}</p>
@@ -42,5 +42,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="{% static 'js/script_cursos.js' %}"></script>
+    <script src="{% static 'js/script_meuscursos.js' %}"></script>
 {% endblock %}
