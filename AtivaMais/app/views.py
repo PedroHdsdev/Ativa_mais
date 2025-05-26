@@ -32,7 +32,8 @@ def LOGIN(request):
 def CADASTRO(request):
      if request.method == "POST":
           Grupo = request.POST.get('grupo')
-          Nome  = request.POST.get('Username')
+          userNome  = request.POST.get('Username')
+          Nome  = request.POST.get('name') 
           password = request.POST.get('password')
           conf_password = request.POST.get('conf_password')
           email = request.POST.get('m_email')
@@ -42,7 +43,8 @@ def CADASTRO(request):
                return render(request, 'index_cadastro.html')
           else:
                user = User.objects.create_user(
-                    username=Nome,
+                    username=userNome,
+                    first_name = Nome,
                     email=email,
                     password=password
                )

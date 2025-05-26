@@ -29,8 +29,12 @@
                 {% csrf_token %}
                 <input type="hidden" name="grupo" id="grupo">
                 <div class="field">
-                    <label for="Username" class="lab">Nome:</label>
+                    <label for="Username" class="lab">Nome user:</label>
                     <input type="text" id="Username" name="Username" class="text" required>
+                </div>
+                 <div class="field">
+                    <label for="nome" class="lab">Nome completo:</label>
+                    <input type="nome" id="nome" name="nome" class="text" required>
                 </div>
                 <div class="field">
                     <label for="password" class="lab">Senha:</label>
