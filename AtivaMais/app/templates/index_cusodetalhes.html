@@ -9,9 +9,10 @@
 
 {% block container %}
 <div class="prncipal">
+    <form method="POST" class="form" action="{% url 'cursodetalhes' W_Curso.id %}">
+    {% csrf_token %}
     <div class="container01">
-        <h1>Nome:</h1>
-        <p>{{ W_Curso.nome }}</p>
+        <h1>{{ W_Curso.nome }}</h1>
         <h2>Produtor:</h2>
         <p>{{ W_Curso.user.first_name }}</p>
         <h2>Valor:</h2>
@@ -24,8 +25,10 @@
     <div class="container02">
         <h2>Descrição da vaga:</h2>
         <p>{{ W_Curso.descricao }}</p>
-        <button type="button" class="btn-Comprar" id="comprar">Comprar</button>
+        <input type="hidden" name="curso_id" id="curso_id" value="{{ W_Curso.id }}">
+        <button type="submit" class="btn-Comprar" id="comprar">Comprar</button>
     </div>
+    </form>
 </div>
 {% endblock %}
 

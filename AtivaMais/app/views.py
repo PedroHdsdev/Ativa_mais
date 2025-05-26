@@ -121,21 +121,43 @@ def VAGADETALHES(request, id):
 
 def CURSODETALHES(request, id):
      if request.user.is_authenticated:
+          if request.method == "POST":
+               curso_id = request.POST.get('curso_id')
+               curso = Cursos.objects.get(id=curso_id)
 
-          grupo = request.session.get('grupo')
-          curso = Cursos.objects.get(id=id)
+               try:
+                    User_Curso_obj, created = User_Cursos.objects.get_or_create(
+                    user=request.user,
+                    Curso=curso  # Corrigido: campo com C maiúsculo!
+                    )
+               except Cursos.DoesNotExist:
+                    print(f"Curso com id {curso_id} não encontrado.")
+               # Pode redirecionar para uma página de erro ou mostrar mensagem
+               except Exception as e:
+                    print(f"Erro ao adicionar curso ao usuário: {e}")
+
+               return CURSOS(request)
+          else:
+
+               grupo = request.session.get('grupo')
+               curso = Cursos.objects.get(id=id)
           
-          return render(request, 'index_cusodetalhes.html',{'Grups':grupo,
-                                                            'W_Curso':curso})
+
+               return render(request, 'index_cusodetalhes.html',{'Grups':grupo,
+                                                                 'W_Curso':curso})
      
      return render(request, 'index_login.html')
 
 def MEUSCURSOS(request):
      if request.user.is_authenticated:
 
+          grupo = request.session.get('grupo')
 
-          return render(request, 'index_meuscursos.html')
-     
+          user_cursos = User_Cursos.objects.filter(user=request.user).select_related('Curso')
+
+          return render(request, 'index_meuscursos.html',{'Grups':grupo,
+                                                            'T_Cursos':user_cursos})
+
      return render(request, 'index_login.html')
 
 def AULA(request, id):

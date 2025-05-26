@@ -9,8 +9,11 @@
 
 {% block container %}
 <div class="principal">
-    <h1 class="titulo-principal">MEU CURRÍCULO</h1>
-    
+    {% if Grups == "Recrutador" %} 
+        <h1 class ="titulo-principal">MEU PERFIL</h1>
+    {% else %} 
+        <h1 class ="titulo-principal">MEU CURRÍCULO</h1>
+    {% endif %} 
     <form method="POST" class="form-curriculo" enctype="multipart/form-data">
         {% csrf_token %}
         
@@ -45,7 +48,7 @@
             
            
         </fieldset>
-        
+        {% if Grups != "Recrutador" %}  
         <!-- Seção de Formação Acadêmica -->
         <fieldset class="secao">
             <legend>Formação Acadêmica</legend>
@@ -125,7 +128,6 @@
             <button type="button" class="btn-adicionar" id="adicionar-experiencia">+ Adicionar Experiência</button>
         </fieldset>
        
-        
         <!-- Seção de Idiomas -->
         <fieldset class="secao">
             <legend>Idiomas</legend>
@@ -160,6 +162,7 @@
         </div>
     </form>
 </div>
+  {% endif %} 
 {% endblock %}
 
 {% block scripts %}

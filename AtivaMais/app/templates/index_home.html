@@ -22,8 +22,7 @@
     {% for W_vagas in T_Vagas %}
         <a href="{% url 'vagadetalhes' W_vagas.id %}">
             <div class="container03">
-                <h1>Vaga:</h1>
-                <p>{{ W_vagas.nome }}</p>
+                <h1>{{ W_vagas.nome }}</h1>
                 <h2>Empresa:</h2>
                 <p>{{ W_vagas.empresa }}</p>    
             </div>

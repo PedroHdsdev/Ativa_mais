@@ -98,3 +98,21 @@ p {
 .search-button:hover {
     background-color: #2d6a4f;
 }
+
+
+.btn-Comprar {
+    background-color: transparent;
+    border: 1px solid #2d6a4f;
+    color: #2d6a4f;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-Comprar:hover {
+    background-color: #2d6a4f;
+    color: #fff;
+}

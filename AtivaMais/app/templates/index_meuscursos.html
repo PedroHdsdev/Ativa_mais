@@ -22,20 +22,14 @@
      {% for W_Curso in T_Cursos %}
         <a href="{% url 'aula' W_Curso.id %}">
             <div class="container03">
-                <h1>Vaga:</h1>
-                <p>{{ W_Curso.nome }}</p>
+                <h1>{{ W_Curso.Curso.nome }}</h1>
                 <h2>Produtor:</h2>
-                <p>{{ W_Curso.user.first_name }}</p>
-                <h2>Valor:</h2>
-                {% if W_Curso.gratis %} 
-                    <p>Gratís</p>
-                {% else %}
-                    <p>{{ W_Curso.valor }}</p>
-                {% endif %}
+                <p>{{ W_Curso.Curso.user.first_name }}</p>
                 <h2>Quantidade de aulas:</h2>
-                <p>{{ W_Curso.qnt_modulo }}</p>   
+                <p>{{ W_Curso.Curso.qnt_modulo }}</p>    
+                <button type="submit" class="btn-Comprar" id="comecar">Começar</button>
             </div>
-        </a>
+        </a>	
     {% endfor %}
 </div>
 </div>
