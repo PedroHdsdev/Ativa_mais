@@ -36,7 +36,13 @@
                     <li>
                         <a href="{% url 'cadastrovagas' %}" class="menu-item">Criar Vaga</a>
                     </li>
+                    <li>
+                        <a href="{% url 'home' %}" class="menu-item">Vagas criadas</a>
+                    </li>
                 {% else %}
+                    <li>
+                        <a href="{% url 'home' %}" class="menu-item">Buscar Vagas</a>
+                    </li>
                 {% endif %}   
                 <li>
                     <a href="{% url 'meuscursos' %}" class="menu-item">Meus Cursos</a>

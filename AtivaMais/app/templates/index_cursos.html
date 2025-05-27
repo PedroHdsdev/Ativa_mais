@@ -22,8 +22,7 @@
      {% for W_Curso in T_Cursos %}
         <a href="{% url 'cursodetalhes' W_Curso.id %}">
             <div class="container03">
-                <h1>Vaga:</h1>
-                <p>{{ W_Curso.nome }}</p>
+                <h1>{{ W_Curso.nome }}</h1>
                 <h2>Produtor:</h2>
                 <p>{{ W_Curso.user.first_name }}</p>
                 <h2>Valor:</h2>
