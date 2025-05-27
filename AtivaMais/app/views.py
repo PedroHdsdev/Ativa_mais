@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate, login as lg
 from django.db.models import Q
+from django.db import IntegrityError
 from app.models import  AuthUser, AuthGroup, AuthUserGroups, Vagas, User_Vagas
 from app.models import Cursos, User_Cursos, Modulos, Modulos_Cursos
 
@@ -38,25 +39,31 @@ def CADASTRO(request):
           conf_password = request.POST.get('conf_password')
           email = request.POST.get('m_email')
 
-          if password != conf_password:
+          if Grupo == None or Grupo == "":
                v_aviso = True
-               return render(request, 'index_cadastro.html')
+               return render(request, 'index_cadastro.html', {'error': 'Grupo inválido.'})
           else:
-               user = User.objects.create_user(
-                    username=userNome,
-                    first_name = Nome,
-                    email=email,
-                    password=password
-               )
+               if password != conf_password:
+                    return render(request, 'index_cadastro.html', {'error_sh': 'senha inválida.'})
+               else:
+                    # Verifica se usuário já existe
+                    if User.objects.filter(username=userNome).exists():
+                         return render(request, 'index_cadastro.html', {'error': 'Usuário já existe.'})
 
-               try:
-                    auth_user = AuthUser.objects.get(username=Nome)
-                    auth_group = AuthGroup.objects.get(name=Grupo)
-               except AuthUser.DoesNotExist:
-                    return render(request, 'index_cadastro.html', {'error': 'Grupo inválido.'})
-               
-               AuthUserGroups.objects.create(user=auth_user, group=auth_group)
+                    try:
+                         user = User.objects.create_user(
+                              username=userNome,
+                              email=email,
+                              password=password
+                         )
 
+                         #auth_user = User.objects.get(username=userNome)
+                         group = Group.objects.get(name=Grupo)
+                         #AuthUserGroups.objects.create(user=auth_user, group=auth_group)
+                         user.groups.add(group)
+
+                    except AuthGroup.DoesNotExist:
+                         return render(request, 'index_cadastro.html', {'error': 'Grupo inválido.'})
                
           return render(request, 'index_login.html')
      return render(request, 'index_cadastro.html')
